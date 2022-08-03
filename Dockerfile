@@ -7,6 +7,7 @@ liblog4cpp5-dev libncurses5-dev libselinux1-dev wget libsqlite3-dev google-mock 
 libjpeg-turbo8-dev libnuma-dev automake autoconf autotools-dev libevent-dev thrift-compiler \
 libboost-dev libboost-test-dev libboost-program-options-dev libboost-filesystem-dev libboost-thread-dev libevent-dev \
 libtool flex pkg-config libssl-dev \
+libc6 libc6-dev \
 libc6-dev-i386 gcc-multilib libc6-dev-i386 g++-multilib libblkid-dev \
 libimlib2-dev libimlib2 giblib-dev libgtk-3-dev libcanberra-gtk3-dev libpam0g-dev vim gdb ssh
 
