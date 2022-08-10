@@ -5,7 +5,7 @@ RUN apt-get update && apt-get install -y bison++ tcl libprocps3-dev libxalan-c-d
 libcrypto++-dev libcrypto++9 libpcre++-dev uuid-dev libsnappy-dev build-essential cmake maven libicu-dev zlib1g-dev \
 liblog4cpp5-dev libncurses5-dev libselinux1-dev wget libsqlite3-dev google-mock libvirt-dev libmysqlclient-dev qtbase5-dev qtdeclarative5-dev \
 libjpeg-turbo8-dev libnuma-dev automake autoconf autotools-dev libevent-dev thrift-compiler \
-libevent-dev \
+libevent-dev python-dev g++ libbz2-dev \
 libtool flex pkg-config libssl-dev \
 libc6 libc6-dev \
 libc6-dev-i386 gcc-multilib libc6-dev-i386 g++-multilib libblkid-dev \
