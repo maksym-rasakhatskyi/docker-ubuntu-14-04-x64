@@ -15,13 +15,14 @@ libimlib2-dev libimlib2 giblib-dev libgtk-3-dev libcanberra-gtk3-dev libpam0g-de
 RUN apt remove cmake -y
 RUN cd /tmp && wget https://github.com/Kitware/CMake/releases/download/v3.14.5/cmake-3.14.5.tar.gz && tar xf cmake-3.14.5.tar.gz && cd /tmp/cmake-3.14.5 && ./bootstrap --prefix=/usr -- -DCMAKE_BUILD_TYPE:STRING=Release && make -j2 && make install && cd ../ && rm -rf cmake-3.14.5 && rm -rf cmake-3.14.5.tar.gz
 
-# boost 1.66.0
-RUN cd /tmp && wget --no-check-certificate http://sourceforge.net/projects/boost/files/boost/1.66.0/boost_1_66_0.tar.gz && tar zxvf boost_1_66_0.tar.gz && cd boost_1_66_0 && ./bootstrap.sh --with-icu --libdir=/usr/lib/x86_64-linux-gnu --includedir=/usr/include && ./b2 && ./b2 install && cd - && ldconfig
+# boost 1.80.0
+RUN cd /tmp && wget --no-check-certificate http://sourceforge.net/projects/boost/files/boost/1.80.0/boost_1_80_0.tar.gz && tar zxvf boost_1_80_0.tar.gz && cd boost_1_80_0 && \
+./bootstrap.sh --with-icu --libdir=/usr/lib/x86_64-linux-gnu --includedir=/usr/include && ./b2 && ./b2 install && cd - && ldconfig
 
 RUN cd /tmp && wget https://github.com/emcrisostomo/fswatch/releases/download/1.9.3/fswatch-1.9.3.tar.gz && tar xf fswatch-1.9.3.tar.gz && \
 cd fswatch-1.9.3 && ./configure && make install && cd ../ && rm -rf fswatch-1.9.3.tar.gz && rm -rf fswatch-1.9.3
-RUN cd /tmp && wget https://archive.apache.org/dist/thrift/0.9.3/thrift-0.9.3.tar.gz && tar xf thrift-0.9.3.tar.gz && cd thrift-0.9.3 && ./configure --without-qt4 --without-qt5 --without-java --without-ruby && make install && cd .. && rm -rf thrift-0.9.3 thrift-0.9.3.tar.gz
-RUN cd /tmp && wget http://nixos.org/releases/patchelf/patchelf-0.8/patchelf-0.8.tar.gz && tar xf patchelf-0.8.tar.gz && patchelf-0.8/configure && make install && rm -rf patchelf-0.8 && rm -f patchelf-0.8.tar.gz
+RUN cd /tmp && wget https://archive.apache.org/dist/thrift/0.13.0/thrift-0.13.0.tar.gz && tar xf thrift-0.13.0.tar.gz && cd thrift-0.13.0 && ./configure --without-qt4 --without-qt5 --without-java --without-ruby && make install && cd .. && rm -rf thrift-0.13.0 thrift-0.13.0.tar.gz
+RUN cd /tmp && wget --no-check-certificate http://nixos.org/releases/patchelf/patchelf-0.8/patchelf-0.8.tar.gz && tar xf patchelf-0.8.tar.gz && patchelf-0.8/configure && make install && rm -rf patchelf-0.8 && rm -f patchelf-0.8.tar.gz
 
 RUN cd /usr/src/gmock/gtest/ && cmake . && make && cp -r include/gtest /usr/include && cp *.a /usr/lib
 RUN cd /usr/src/gmock/ && cmake . && make && cp *.a /usr/lib
