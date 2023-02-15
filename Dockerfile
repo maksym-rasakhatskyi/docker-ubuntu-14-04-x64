@@ -41,6 +41,6 @@ RUN apt-get install -y e2fslibs-dev
 
 # openssl 3
 RUN cd /tmp && wget --no-check-certificate https://github.com/openssl/openssl/archive/refs/tags/openssl-3.0.5.tar.gz && tar xf openssl-3.0.5.tar.gz && cd openssl-openssl-3.0.5 && \
-./config && make && make install && \
+./config no-tls1_3 && make && make install && \
 cd .. && rm -rf openssl-openssl-3.0.5 && rm -f openssl-3.0.5.tar.gz && ldconfig
 
